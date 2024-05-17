@@ -19,6 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Weather App</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </head>
       <StoreProvider>
         <body className={inter.className}>
           <div className="relative w-full py-3 px-4 grid grid-cols-12 bg-blue-100 min-h-screen bg-hero-pattern bg-cover">
