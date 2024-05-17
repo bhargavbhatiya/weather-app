@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
+import LayoutA from "./A";
+import Aside from "@/components/aside/Aside";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <StoreProvider>
+        <body className={inter.className}>
+          <div className="relative w-full py-3 px-4 grid grid-cols-12 bg-blue-100 min-h-screen bg-hero-pattern bg-cover">
+            <div className="lg:h-full w-full col-span-12 lg:col-span-1 lg:py-2">
+              <Aside />
+            </div>
+            <div className="col-span-12 lg:col-span-11">
+              <LayoutA />
+              {children}
+            </div>
+          </div>
+        </body>
+      </StoreProvider>
     </html>
   );
 }
