@@ -18,9 +18,8 @@ const TodayForecast = ({ className }: Props) => {
   const { width } = useContainerDimensions(ref);
   const { cityPicker } = useSelector((state: RootState) => state.geoSlice);
   const { data: oneCall, isLoading } = useGetOneCallQuery({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     lon: (cityPicker as any).center[0],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     lat: (cityPicker as any).center[1],
   });
 
@@ -34,7 +33,7 @@ const TodayForecast = ({ className }: Props) => {
     <Card className={`flex-col mb-4 ${className ? className : ""}`} ref={ref}>
       <div className="w-full flex justify-between items-center mb-6">
         <p className="w-full uppercase text-subHeadline text-secondary">
-          today's forecast
+          today&apos;s forecast
         </p>
       </div>
       {isLoading ? (

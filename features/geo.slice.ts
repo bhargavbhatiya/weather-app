@@ -2,7 +2,6 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { Feature } from "geojson";
 
 type State = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cityPicker: any;
   cityList: Feature[];
 };

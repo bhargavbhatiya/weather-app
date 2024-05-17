@@ -13,9 +13,8 @@ type Props = { item: Feature };
 
 const SearchItem = ({ item }: Props) => {
   const { data, isLoading } = useGetWeatherQuery({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     lon: (item as any).center[0],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     lat: (item as any).center[1],
   });
   const { cityPicker } = useSelector((state: RootState) => state.geoSlice);
@@ -47,16 +46,10 @@ const SearchItem = ({ item }: Props) => {
           />
           <div>
             <p className="text-secondary-light text-value mb-1">
-              {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (item as any).place_name_en.split(",")[0]
-              }
+              {(item as any).place_name_en.split(",")[0]}
             </p>
             <p className="text-secondary-light text-body mb-1">
-              {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (item as any).place_name_en.split(",").slice(1).join(",")
-              }
+              {(item as any).place_name_en.split(",").slice(1).join(",")}
             </p>
             <p className="text-secondary text-label">
               {data && convertTimestamp(data.dt).time}

@@ -14,9 +14,8 @@ const AirConditions = ({ onSeeMore }: Props) => {
   const { cityPicker } = useSelector((state: RootState) => state.geoSlice);
 
   const { data: oneCall, isLoading } = useGetOneCallQuery({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     lon: (cityPicker as any).center[0],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     lat: (cityPicker as any).center[1],
   });
 

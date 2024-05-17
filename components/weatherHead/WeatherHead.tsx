@@ -13,9 +13,8 @@ const WeatherHead = ({ className }: Props) => {
   const { width } = useContainerDimensions(ref);
   const { cityPicker } = useSelector((state: RootState) => state.geoSlice);
   const { data: oneCall } = useGetOneCallQuery({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     lon: (cityPicker as any).center[0],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     lat: (cityPicker as any).center[1],
   });
 
@@ -64,10 +63,7 @@ const WeatherHead = ({ className }: Props) => {
             width <= 400 ? "text-center" : "text-start"
           }`}
         >
-          {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (cityPicker as any)?.place_name_en.split(",").slice(1).join(",")
-          }
+          {(cityPicker as any)?.place_name_en.split(",").slice(1).join(",")}
         </p>
 
         <p className="text-body text-secondary">

@@ -20,5 +20,5 @@ const Card = forwardRef<HTMLDivElement, Props>(
     );
   }
 );
-
+Card.displayName = "Card";
 export default Card;
