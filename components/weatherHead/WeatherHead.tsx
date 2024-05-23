@@ -30,21 +30,20 @@ const WeatherHead = ({ className }: Props) => {
           width <= 400 ? "order-1" : "order-2"
         }`}
       >
-        <Image
-          className="w-full"
-          src={
-            (oneCall &&
-              oneCall.current &&
-              (oneCall.current.dt < oneCall.current.sunrise &&
-              oneCall.current.dt > oneCall.current.sunset
-                ? convertIcons(oneCall.current.weather[0].id)
-                : convertIcons(oneCall.current.weather[0].id, false))) ||
-            ""
-          }
-          height={150}
-          width={150}
-          alt="weather icon"
-        />
+        {oneCall &&
+        oneCall.current &&
+        oneCall.current.dt < oneCall.current.sunrise &&
+        oneCall.current.dt > oneCall.current.sunset ? (
+          <Image
+            className="w-full"
+            src={convertIcons(oneCall?.current.weather[0].id)}
+            height={150}
+            width={150}
+            alt="weather icon"
+          />
+        ) : (
+          <></>
+        )}
       </div>
       <div
         className={`w-full flex flex-col ${
