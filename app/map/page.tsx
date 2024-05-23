@@ -121,9 +121,7 @@ const WeatherMap = () => {
     changeWeatherLayer("wind");
     cityPicker &&
       reverseGeocoding({
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         lng: (cityPicker as any)?.center[0],
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         lat: (cityPicker as any)?.center[1],
       } as LngLat);
   };
@@ -145,7 +143,6 @@ const WeatherMap = () => {
     const weatherLayerValue = weatherLayers[activeLayer.current]?.value;
     const weatherLayerUnits = weatherLayers[activeLayer.current]?.units;
     if (weatherLayer) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const value: any = weatherLayer.pickAt(lngLat.lng, lngLat.lat);
 
       if (!value) {
@@ -231,13 +228,10 @@ const WeatherMap = () => {
 
   useEffect(() => {
     reverseGeocoding({
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       lng: (cityPicker as any)?.center[0],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       lat: (cityPicker as any)?.center[1],
     } as LngLat);
     return () => {};
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, react-hooks/exhaustive-deps
   }, [(cityPicker as any)?.center[0], (cityPicker as any)?.center[1]]);
 
   return (
