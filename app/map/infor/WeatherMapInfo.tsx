@@ -1,13 +1,14 @@
-import { forwardRef } from 'react'
+import { forwardRef } from "react";
 
 type Props = {
-  layerLabel: string
-}
+  layerLabel: string;
+};
 
-const WeatherMapInfo = forwardRef<HTMLSpanElement, Props>(({ layerLabel }, ref) => {
-  return (
-    <>
-      {/* <div className='absolute w-full flex flex-col text-center bottom-0 m-2 text-white p-5 z-10'>
+const WeatherMapInfo = forwardRef<HTMLSpanElement, Props>(
+  ({ layerLabel }, ref) => {
+    return (
+      <>
+        {/* <div className='absolute w-full flex flex-col text-center bottom-0 m-2 text-white p-5 z-10'>
           <div>
             <span className='text-body'>{timeText}</span>
             <button
@@ -26,11 +27,13 @@ const WeatherMapInfo = forwardRef<HTMLSpanElement, Props>(({ layerLabel }, ref) 
             onClick={(event: MouseEvent) => handleSetValueInput(event)}
           />
         </div> */}
-      <div className='absolute text-label m-7 text-secondary-white z-10'>
-        <p className='capitalize'>{layerLabel}</p>
-        <span ref={ref}></span>
-      </div>
-    </>
-  )
-})
-export default WeatherMapInfo
+        <div className="absolute text-label m-7 text-secondary-white z-10">
+          <p className="capitalize">{layerLabel}</p>
+          <span ref={ref}></span>
+        </div>
+      </>
+    );
+  }
+);
+WeatherMapInfo.displayName = "WeatherMapInfo";
+export default WeatherMapInfo;
